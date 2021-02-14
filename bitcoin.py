@@ -3,6 +3,7 @@
 # Author: Alan Healy
 # Date Created: 14-FEB-2021
 #
+# Reference: https://www.w3schools.com/python/python_strings_slicing.asp
 # Reference: https://stackoverflow.com/questions/23306653/python-accessing-nested-json-data
 # Reference: https://stackoverflow.com/questions/2087370/decode-html-entities-in-python-string
 
@@ -43,7 +44,7 @@ for eachCurrency in bpi:
         code = currency['code']
         symbol = html.unescape(currency['symbol']) # escape html code here so only need to do once (if program was to be expanded upon)
         rate_float = currency['rate_float'] # for calculations if ever used
-        rate_display = currency['rate'][:-2] # for displaying with thousand separator
+        rate_display = currency['rate'][:-2] # for displaying with thousand separator, to two decimal places
         break  # print needs to be outside this loop to only print once per currency
     print("1 BTC in {} is {}{}".format(code, symbol, rate_display))
 
