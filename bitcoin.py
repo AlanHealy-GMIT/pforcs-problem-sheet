@@ -1,5 +1,5 @@
 # bitcoin.py
-# This program outputs the current bitcoin price in US Dollars
+# This program outputs the current bitcoin price in US Dollars, and other currencies
 # Author: Alan Healy
 # Date Created: 14-FEB-2021
 #
@@ -16,9 +16,9 @@ returnedData = requests.get(url)
 
 bitCoinDict = returnedData.json()
 
-# print("1 BTC in USD is ${:.2f}".format((bitCoinDict['bpi']['USD']['rate_float'])))
-# print("1 BTC in GBP is £{:.2f}".format((bitCoinDict['bpi']['GBP']['rate_float'])))
-# print("1 BTC in EUR is €{:.2f}".format((bitCoinDict['bpi']['EUR']['rate_float'])))
+# print("1 BTC in USD is ${:.2f}".format(bitCoinDict['bpi']['USD']['rate_float']))
+# print("1 BTC in GBP is £{:.2f}".format(bitCoinDict['bpi']['GBP']['rate_float']))
+# print("1 BTC in EUR is €{:.2f}".format(bitCoinDict['bpi']['EUR']['rate_float']))
 
 # above works, but want to make it better, with less hardcoded values.
 # print blank space to separate above
@@ -31,17 +31,21 @@ bitCoinDict = returnedData.json()
 # 2. to go through the details nested in each currency
 
 bpi = bitCoinDict['bpi']
+timeUK = bitCoinDict['time']['updateduk']
+
+print("The current Bitcoin prices as of {} are as follows:".format(timeUK))
 
 for eachCurrency in bpi:
     # this allows the next for loop to go through each cuurency
     currency = bpi[eachCurrency]
-    for eachCurrencyDetails in currency:
+    for eachCurrencyDetail in currency:
         # assign needed details to variables
         code = currency['code']
         symbol = html.unescape(currency['symbol']) # escape html code here so only need to do once (if program was to be expanded upon)
-        rate_float = currency['rate_float']
+        rate_float = currency['rate_float'] # for calculations if ever used
+        rate_display = currency['rate'][:-2] # for displaying with thousand separator
         break  # print needs to be outside this loop to only print once per currency
-    print("1 BTC in {} is {}{:.2f}".format(code, symbol, rate_float))
+    print("1 BTC in {} is {}{}".format(code, symbol, rate_display))
 
 
 # also played with this which would work but would have to done for each currency
