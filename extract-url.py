@@ -21,7 +21,7 @@ import re
 
 regex = "(?:GET |POST )(\S+)"
 
-# filename = "./../Prog_CyberSecOps/week07-regex/smallerAccess.txt" # for testing (to print)
+# filename = "./../Prog_CyberSecOps/week07-regex/smallerAccess.txt" # smaller log file for testing (to print)
 filename = "./w07_www1_access.log"
 
 
