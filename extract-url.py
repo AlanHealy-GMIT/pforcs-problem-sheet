@@ -5,7 +5,7 @@
 #
 # Reference: https://www.w3schools.com/python/python_regex.asp
 # Reference: https://regex101.com/r/Iafoaq/1 # This may be overwritten, but this what I used to verify my first regex ( /| show)
-# Reference: 
+# Reference: https://regex101.com/r/Iafoaq/2 # This is the (GET | POST ) regex
 
 import re
 
