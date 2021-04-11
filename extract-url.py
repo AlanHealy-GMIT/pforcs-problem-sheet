@@ -1,4 +1,4 @@
-# es.py
+# extract-url.py
 # This program reads a log file and extracts URLs.
 # Author: Alan Healy
 # Date Created: 14-MAR-2021
