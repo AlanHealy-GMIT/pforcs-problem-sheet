@@ -19,6 +19,7 @@ import re
 # This is why I went with what is below, using GET and POST.
 # While these are also hardcoded, they are likely not to change as much as the other characters.
 
+# see REF 3 above for regex breakdown. ?: is the non capturing group, while the second pair of brackets is what is captured
 regex = "(?:GET |POST )(\S+)"
 
 # filename = "./../Prog_CyberSecOps/week07-regex/smallerAccess.txt" # smaller log file for testing (to print)
